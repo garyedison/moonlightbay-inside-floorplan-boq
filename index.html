@@ -14,8 +14,14 @@
   .pitch { background: white; border-radius: 12px; padding: 1.75rem; margin-bottom: 2rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
   .card { background: white; border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
   .card h3 { margin-top: 0; }
-  .beds { font-weight: 600; color: var(--accent); }
+  .beds, .cost { font-weight: 600; color: var(--accent); }
   .sf { font-weight: 600; color: var(--teak); }
+  .tabs { display: flex; gap: 0.5rem; margin: 1rem 0 0.75rem; }
+  .tab { padding: 0.5rem 1rem; border: none; background: #eee; border-radius: 6px 6px 0 0; cursor: pointer; font-weight: 500; }
+  .tab.active { background: var(--accent); color: white; }
+  .tab-content { display: none; padding: 1rem 0; }
+  .tab-content.active { display: block; }
+  .render-placeholder { background: #f7f5f0; border: 1px dashed #ccc; border-radius: 8px; padding: 2rem; text-align: center; color: #666; }
   table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
   th, td { text-align: left; padding: 0.6rem 0.75rem; border-bottom: 1px solid #eee; }
   th { background: var(--oak); }
@@ -31,57 +37,97 @@
 <div class="container">
   <div class="pitch">
     <h2>Why one floor plan, one furniture package</h2>
-    <p>When multiple buyers take the identical interior layout and the identical Caribbean Salt FF&amp;E kit, we can fill 40HQ containers more efficiently, negotiate better factory and supplier pricing, and ship the furniture kit in a dedicated 20 ft container DDP. Exterior cladding, decks, and site work stay flexible; the living core stays locked.</p>
+    <p>When multiple buyers take the identical interior layout and the identical Caribbean Salt FF&amp;E kit, we can fill 40HQ containers more efficiently, negotiate better factory and supplier pricing, and ship the furniture kit in a dedicated 20 ft container DDP. Exterior cladding, decks, and site work stay flexible; the living core stays locked. All plans have <strong>8-foot ceiling heights</strong>.</p>
   </div>
 
-  <h2>Exterior looks by lot</h2>
+  <h2>Plans — click Outside or Inside</h2>
+
   <div class="card">
     <h3>Lot 115 · Cedar spiral (canal bank)</h3>
-    <p class="beds">2 bed / 2 bath · one up, one down</p>
-    <p>Cedar lap over steel, corten rust container end, black exterior spiral stair, 400 sf open teak deck. <span class="sf">768 sf enclosed</span>.</p>
-  </div>
-  <div class="card">
-    <h3>Lot 127 / PT190249 style</h3>
-    <p class="beds">2 bed / 1–2 bath · two-story</p>
-    <p>Salt-white or light painted shell, teak stair to walk-out balcony, concrete pad. <span class="sf">~646 sf</span>.</p>
+    <p class="beds">2 bed / 2 bath · one up, one down · 8 ft ceilings</p>
+    <p class="cost">All-in furnished ≈ US$225,000–$229,000</p>
+    <p>Cedar lap over steel, corten/rust container end, black exterior spiral stair, 400 sf open teak deck. <span class="sf">768 sf enclosed</span>.</p>
+    <div class="tabs">
+      <button class="tab active" onclick="showTab(this, 'l115-out')">Outside</button>
+      <button class="tab" onclick="showTab(this, 'l115-in')">Inside floor plan</button>
+    </div>
+    <div id="l115-out" class="tab-content active">
+      <div class="render-placeholder">Exterior: cedar lap, rust end, black spiral, teak deck on canal bank</div>
+      <p>Customer look from prior quotes: cedar cladding over the steel modules, corten end wall, black spiral connecting levels, open teak deck facing the canal.</p>
+    </div>
+    <div id="l115-in" class="tab-content">
+      <div class="render-placeholder">Roof-off top view: living + one bedroom/bath down, second bedroom/bath up</div>
+      <p>Main level: open living, kitchen, one bedroom and bath. Upper: second bedroom and bath. Same Caribbean Salt finishes throughout.</p>
+    </div>
   </div>
 
-  <h2>Inside floor plans (roof-off top views) — beds &amp; baths</h2>
   <div class="card">
     <h3>Compact single-level (LOT 127 / PT210223)</h3>
-    <p class="beds">2 bedrooms / 1 bathroom</p>
-    <p>Overall ~20' × 24' · <span class="sf">~478–500 sf</span> from 6058 × 7329 mm. Two bedrooms, open living, kitchen/dining, one bath.</p>
+    <p class="beds">2 bedrooms / 1 bathroom · 8 ft ceilings</p>
+    <p class="cost">Unfurnished liveable ≈ US$81,000–$100,000 · furnished with Caribbean Salt higher</p>
+    <p>Overall ~20' × 24' · <span class="sf">~478–500 sf</span> from 6058 × 7329 mm. Salt-white or light shell options.</p>
+    <div class="tabs">
+      <button class="tab active" onclick="showTab(this, 'c127-out')">Outside</button>
+      <button class="tab" onclick="showTab(this, 'c127-in')">Inside floor plan</button>
+    </div>
+    <div id="c127-out" class="tab-content active">
+      <div class="render-placeholder">Exterior: light/salt-white shell, teak stair or pad, tropical setting</div>
+      <p>Exterior finishes from prior work: painted steel container, optional cedar lap, concrete pad, rock path. No large ground deck on the base Lot 127 quote.</p>
+    </div>
+    <div id="c127-in" class="tab-content">
+      <div class="render-placeholder">Roof-off top view: 2 bedrooms, open living, kitchen/dining, 1 bath</div>
+      <p>Bedrooms ≈ 110–132 sf each, living ≈ 150–162 sf, kitchen/dining ≈ 80–122 sf, bath ≈ 33–40 sf. Honed limestone / tile floors, whitewashed oak, limewash walls.</p>
+    </div>
   </div>
+
   <div class="card">
-    <h3>Lot 115 · Two-story spiral</h3>
-    <p class="beds">2 bedrooms / 2 bathrooms · one up / one down</p>
-    <p><span class="sf">768 sf enclosed</span> · 71 m². Living, kitchen, one bedroom and bath on the main level; second bedroom and bath above. Exterior black spiral connects the levels.</p>
-  </div>
-  <div class="card">
-    <h3>PT190249 Type A / B · Ground + upper</h3>
-    <p class="beds">2–3 bedrooms / 2 bathrooms (typical)</p>
-    <p>L1 open living / dining / kitchen + stair. L2 bedrooms and bath. Total enclosed aligns with the <span class="sf">~646 sf (60 m²)</span> PT190249 quote for Lot 127.</p>
+    <h3>PT190249 Type A / B · two-story</h3>
+    <p class="beds">2–3 bedrooms / 2 bathrooms · 8 ft ceilings</p>
+    <p class="cost">Unfurnished ≈ US$81,580 base · fully furnished with kit + install ≈ US$133,000+</p>
+    <p>L1 open living / dining / kitchen + stair. L2 bedrooms and bath. <span class="sf">~646 sf (60 m²)</span> total enclosed.</p>
+    <div class="tabs">
+      <button class="tab active" onclick="showTab(this, 'pt-out')">Outside</button>
+      <button class="tab" onclick="showTab(this, 'pt-in')">Inside floor plan</button>
+    </div>
+    <div id="pt-out" class="tab-content active">
+      <div class="render-placeholder">Exterior: salt-white shell, teak stair to walk-out balcony</div>
+      <p>Matches the Lot 127 PT190249 exterior language: light painted modules, teak stair, walk-out balcony as the evening room.</p>
+    </div>
+    <div id="pt-in" class="tab-content">
+      <div class="render-placeholder">Roof-off L1: open living/dining/kitchen + stair · L2: bedrooms + bath</div>
+      <p>Ground floor social spaces; upper floor private rooms. Same high-end Caribbean Salt materials and 8 ft ceilings.</p>
+    </div>
   </div>
 
   <h2>BOQ framing (volume advantage)</h2>
   <table>
     <thead><tr><th>Item</th><th>Factory shell (China)</th><th>Miguel finish (~US$80/sf)</th><th>Caribbean Salt FF&amp;E</th></tr></thead>
     <tbody>
-      <tr><td>Structure</td><td>HDG modules, sandwich panels, steel floor</td><td>Sets &amp; finishes the box</td><td>—</td></tr>
-      <tr><td>Floors</td><td>Steel + fiber-cement + PVC</td><td>Tile / honed limestone</td><td>Area rugs</td></tr>
+      <tr><td>Structure</td><td>HDG modules, sandwich panels, steel floor</td><td>Sets &amp; finishes the box (incl. two-story)</td><td>—</td></tr>
+      <tr><td>Floors</td><td>Steel + fiber-cement + PVC</td><td>Tile / honed limestone</td><td>Area rugs (sand linen)</td></tr>
       <tr><td>Walls</td><td>TPS / rock-wool sandwich</td><td>Prime &amp; paint (limewash)</td><td>—</td></tr>
-      <tr><td>Millwork</td><td>—</td><td>Whitewashed oak cabinetry</td><td>Matching pieces</td></tr>
-      <tr><td>Kitchen / bath</td><td>—</td><td>Granite/quartz, fixtures, tile</td><td>Linen, rattan</td></tr>
-      <tr><td>Furniture kit</td><td>—</td><td>—</td><td>Identical package in 20 ft DDP</td></tr>
+      <tr><td>Millwork</td><td>—</td><td>Whitewashed oak cabinetry</td><td>Matching loose pieces</td></tr>
+      <tr><td>Kitchen / bath</td><td>—</td><td>Granite/quartz, fixtures, tile</td><td>Linen, rattan accents</td></tr>
+      <tr><td>Furniture kit</td><td>—</td><td>—</td><td>Identical package ships in 20 ft DDP</td></tr>
     </tbody>
   </table>
   <div class="note">
-    <strong>Volume pitch:</strong> Buyers who take the same floor plan and the same Caribbean Salt furniture kit reduce unique SKUs, improve packing density, and allow repeat orders to the factory and suppliers. Exterior and site work can still be customized.
+    <strong>Volume pitch:</strong> Buyers who take the same floor plan and the same Caribbean Salt furniture kit reduce unique SKUs, improve packing density, and allow repeat orders to the factory and suppliers. Exterior finishes (cedar lap, salt-white paint, corten ends, teak decks) can still be chosen per lot; the living core and furniture stay standardized. All ceilings are 8 feet.
   </div>
   <div class="note">
-    Working draft for buyer presentations. Not a contract. Bed/bath counts and square footages from the attached dimensioned PDFs and existing Lot 115 (2BR/2BA, 768 sf) / Lot 127–PT190249 quotes.
+    Working draft for buyer presentations. Not a contract. Costs and finishes drawn from prior Lot 115 spiral ($225–229k furnished) and Lot 127 / PT190249 unfurnished (~$81.5k) quotes. Square footages from the attached PDFs.
   </div>
 </div>
-<footer>Moonlight Bay de Consejo · Belize · Inside Floor Plan &amp; BOQ · October 2026</footer>
+<footer>Moonlight Bay de Consejo · Belize · Inside Floor Plan &amp; BOQ · October 2026 · 8 ft ceilings</footer>
+
+<script>
+function showTab(btn, id) {
+  const card = btn.closest('.card');
+  card.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+</script>
 </body>
 </html>
