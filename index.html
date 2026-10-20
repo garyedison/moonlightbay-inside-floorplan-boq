@@ -1,1 +1,134 @@
-PLACEHOLDER_WILL_REPLACE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moonlight Bay · Inside Floor Plan &amp; BOQ</title>
+<style>
+  :root { --linen: #faf8f5; --text: #2c2a26; --teak: #8b6f47; --accent: #5a7a5a; --oak: #e8e0d0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, sans-serif; background: var(--linen); color: var(--text); line-height: 1.5; }
+  header { background: #1a1916; color: var(--linen); padding: 2.5rem 1.5rem; text-align: center; }
+  header h1 { margin: 0 0 0.5rem; font-size: 2.2rem; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.25rem; }
+  .pitch { background: white; border-radius: 12px; padding: 1.75rem; margin-bottom: 2rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .card { background: white; border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
+  .card h3 { margin-top: 0; }
+  .beds, .cost { font-weight: 600; color: var(--accent); }
+  .sf { font-weight: 600; color: var(--teak); }
+  .tabs { display: flex; gap: 0.5rem; margin: 1rem 0 0.75rem; }
+  .tab { padding: 0.5rem 1rem; border: none; background: #eee; border-radius: 6px 6px 0 0; cursor: pointer; font-weight: 500; }
+  .tab.active { background: var(--accent); color: white; }
+  .tab-content { display: none; padding: 1rem 0; }
+  .tab-content.active { display: block; }
+  .img-wrap { position: relative; cursor: pointer; display: block; }
+  .img-wrap img { max-width: 100%; height: auto; border-radius: 8px; margin: 0.5rem 0 1rem; display: block; }
+  .img-wrap:after { content: "Click to enlarge"; position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.6); color: white; font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 4px; }
+  .lightbox { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
+  .lightbox.active { display: flex; }
+  .lightbox img { max-width: 95%; max-height: 95%; }
+  .lightbox .close { position: absolute; top: 20px; right: 30px; color: white; font-size: 2rem; cursor: pointer; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  th, td { text-align: left; padding: 0.6rem 0.75rem; border-bottom: 1px solid #eee; }
+  th { background: var(--oak); }
+  .note { background: #f7f5f0; border-left: 4px solid var(--teak); padding: 1rem 1.25rem; margin: 1.5rem 0; }
+  footer { text-align: center; padding: 2rem; font-size: 0.85rem; color: #777; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Moonlight Bay · Inside Floor Plan &amp; BOQ</h1>
+  <p>Standardized container-home layouts and furniture packages for volume buyers. Same floor plan + same Caribbean Salt kit = better shipping density and supplier pricing.</p>
+</header>
+<div class="container">
+  <div class="pitch">
+    <h2>Why one floor plan, one furniture package</h2>
+    <p>When multiple buyers take the identical interior layout and the identical Caribbean Salt FF&amp;E kit, we can fill 40HQ containers more efficiently, negotiate better factory and supplier pricing, and ship the furniture kit in a dedicated 20 ft container DDP. Exterior cladding, decks, and site work stay flexible; the living core stays locked. All plans have <strong>8-foot ceiling heights</strong>.</p>
+  </div>
+
+  <h2>Plans — click Outside or Inside · images are clickable for full size</h2>
+
+  <div class="card">
+    <h3>Lot 115 · Cedar spiral (canal bank)</h3>
+    <p class="beds">2 bed / 2 bath · one up, one down · 8 ft ceilings</p>
+    <p class="cost">All-in furnished ≈ US$225,000–$229,000</p>
+    <p>Cedar lap over steel, corten/rust container end, black exterior spiral stair, 400 sf open teak deck. <span class="sf">768 sf enclosed</span>.</p>
+    <div class="tabs">
+      <button class="tab active" onclick="showTab(this, 'l115-out')">Outside</button>
+      <button class="tab" onclick="showTab(this, 'l115-in')">Inside floor plan</button>
+    </div>
+    <div id="l115-out" class="tab-content active">
+      <div class="img-wrap" onclick="openLightbox(this.querySelector('img').src)">
+        <img src="https://via.placeholder.com/800x500?text=Lot+115+Cedar+Spiral+Exterior" alt="Lot 115 exterior">
+      </div>
+      <p>Cedar cladding over steel, corten end wall, black spiral, open teak deck facing the canal. Click image to enlarge.</p>
+    </div>
+    <div id="l115-in" class="tab-content">
+      <p>Main level: open living, kitchen, one bedroom and bath. Upper: second bedroom and bath.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Compact single-level (LOT 127 / PT210223)</h3>
+    <p class="beds">2 bedrooms / 1 bathroom · 8 ft ceilings</p>
+    <p class="cost">Unfurnished liveable ≈ US$81,000–$100,000</p>
+    <p>Overall ~20' × 24' · <span class="sf">~478–500 sf</span>.</p>
+    <div class="tabs">
+      <button class="tab active" onclick="showTab(this, 'c127-out')">Outside</button>
+      <button class="tab" onclick="showTab(this, 'c127-in')">Inside floor plan</button>
+    </div>
+    <div id="c127-out" class="tab-content active">
+      <div class="img-wrap" onclick="openLightbox(this.querySelector('img').src)">
+        <img src="https://via.placeholder.com/800x500?text=Lot+127+Light+Shell+Exterior" alt="Lot 127 exterior">
+      </div>
+      <p>Light/salt-white shell options. Click image to enlarge.</p>
+    </div>
+    <div id="c127-in" class="tab-content">
+      <div class="img-wrap" onclick="openLightbox(this.querySelector('img').src)">
+        <img src="https://via.placeholder.com/800x500?text=LOT+127+Top-Down+Floor+Plan" alt="LOT 127 top-down">
+      </div>
+      <p>2 bedrooms, open living, kitchen/dining, 1 bath. Click image to enlarge.</p>
+    </div>
+  </div>
+
+  <h2>BOQ framing (volume advantage)</h2>
+  <table>
+    <thead><tr><th>Item</th><th>Factory shell (China)</th><th>Miguel finish (~US$80/sf)</th><th>Caribbean Salt FF&amp;E</th></tr></thead>
+    <tbody>
+      <tr><td>Structure</td><td>HDG modules, sandwich panels, steel floor</td><td>Sets &amp; finishes the box</td><td>—</td></tr>
+      <tr><td>Floors</td><td>Steel + fiber-cement + PVC</td><td>Tile / honed limestone</td><td>Area rugs</td></tr>
+      <tr><td>Walls</td><td>TPS / rock-wool sandwich</td><td>Prime &amp; paint (limewash)</td><td>—</td></tr>
+      <tr><td>Millwork</td><td>—</td><td>Whitewashed oak cabinetry</td><td>Matching pieces</td></tr>
+      <tr><td>Kitchen / bath</td><td>—</td><td>Granite/quartz, fixtures, tile</td><td>Linen, rattan</td></tr>
+      <tr><td>Furniture kit</td><td>—</td><td>—</td><td>Identical package in 20 ft DDP</td></tr>
+    </tbody>
+  </table>
+  <div class="note">
+    <strong>Volume pitch:</strong> Same floor plan + same Caribbean Salt furniture kit = better shipping density and supplier pricing. All ceilings are 8 feet. Images are clickable for full size.
+  </div>
+</div>
+<footer>Moonlight Bay de Consejo · Belize · Inside Floor Plan &amp; BOQ · October 2026</footer>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="close">&times;</span>
+  <img id="lightbox-img" src="" alt="Full size">
+</div>
+
+<script>
+function showTab(btn, id) {
+  const card = btn.closest('.card');
+  card.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+</script>
+</body>
+</html>
